@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar >
+      <ion-buttons slot="start">
+        <ion-menu-button color="grey" ></ion-menu-button>
+      </ion-buttons>     
+    <ion-title></ion-title>
+    <ion-img slot='end' src='./assets/icon/logoNT1.png'></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding">
+
+
+  
+  <!-- <ion-list> -->
+    <!-- <ion-item *ngFor="let s of staff;" >  -->
+      <!-- <ion-thumbnail slot="start" > -->
+        <!-- <img src="{{s?.picture}}"*ngIf="s.picture" />  -->
+      <!-- </ion-thumbnail> -->
+      <!-- <ion-label  > -->
+        <!-- <ion-text > -->
+         <!--  -->
+         <!-- <h2>ชื่อ {{s?.name}}</h2> -->
+         <!-- <p>รหัสพนักงาน :{{s?.code}}</p> -->
+         <!-- <p *ngIf='s.jobPosition'>ตำแหน่งบริหาร :{{s.jobPosition}}</p> -->
+         <!-- <p>ตำแหน่ง :{{s?.positon}}</p> -->
+         <!-- <p>email:{{s?.email}}</p> -->
+         <!-- <p>โทร:{{s?.mobile}}</p> -->
+<!--  -->
+        <!-- </ion-text> -->
+       <!-- </ion-label> -->
+       <!-- <ion-badge color="danger" slot="end">{{p.view |number}}</ion-badge> -->
+    <!-- </ion-item> -->
+  <!-- </ion-list> -->
+
+
+
+  <ion-card *ngFor="let s of Results;" color='yellow' >
+       
+    <ion-card-content>
+      
+      <ion-thumbnail  >
+        <ion-img src={{s?.picture}}></ion-img> <!-- ngIfcheckpicture -->
+      </ion-thumbnail>
+     <ion-text color="grey">
+      <h2 >ชื่อ {{s?.name}}</h2>
+         <p >รหัสพนักงาน :{{s?.code}}</p>
+         <p *ngIf='s.jobposition'>ตำแหน่งบริหาร :{{s?.jobposition}}</p>
+         <p>ตำแหน่ง :{{s?.position}}</p>
+         <p *ngIf='s.job'>งาน :{{s?.job}}</p>
+         <p>email :{{s?.email}}</p>
+         <p>โทร :{{s?.mobile}}</p>
+        </ion-text>
+        </ion-card-content>
+     
+  </ion-card>
+</ion-content>

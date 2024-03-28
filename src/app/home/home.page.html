@@ -1,0 +1,284 @@
+<ion-header>
+  
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-menu-button color="grey"></ion-menu-button>
+     </ion-buttons>
+    <ion-img slot='end' src='./assets/icon/logoNT1.png'></ion-img>
+       
+    <ion-title slot='start' ></ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!-- <ion-slide pager="true" [options]="slideOpts"> -->
+    <!-- <ion-slide> -->
+      <!-- <ion-img src='https://omchyi.site/srcimg/omc/1.jpg'></ion-img> -->
+    <!-- </ion-slide> -->
+    <!-- <ion-slide> -->
+      <!-- <ion-img src='https://omchyi.site/srcimg/omc/2.jpg'></ion-img> -->
+    <!-- </ion-slide> -->
+    <!-- <ion-slide> -->
+      <!-- <ion-img src='https://omchyi.site/srcimg/omc/3.jpg'></ion-img> -->
+    <!-- </ion-slide> -->
+    <!-- <ion-slide> -->
+      <!-- <ion-img src='https://omchyi.site/srcimg/omc/4.jpg'></ion-img> -->
+    <!-- </ion-slide> -->
+    <!-- <ion-slide> -->
+      <!-- <ion-img src='https://omchyi.site/srcimg/omc/5.jpg'></ion-img> -->
+    <!-- </ion-slide> -->
+    <!-- <ion-slide> -->
+      <!-- <ion-img src='https://omchyi.site/srcimg/omc/6.jpg'></ion-img> -->
+    <!-- </ion-slide> -->
+    <!-- <ion-slide> -->
+      <!-- <ion-img src='https://omchyi.site/srcimg/omc/7.jpg'></ion-img> -->
+    <!-- </ion-slide> -->
+    <!-- <ion-slide> -->
+      <!-- <ion-img src='https://omchyi.site/srcimg/omc/8.jpg'></ion-img> -->
+    <!-- </ion-slide> -->
+    <!-- <ion-slide> -->
+      <!-- <ion-img src='https://omchyi.site/srcimg/omc/9.jpg'></ion-img> -->
+    <!-- </ion-slide> -->
+    <!-- <ion-slide> -->
+      <!-- <ion-img src='https://omchyi.site/srcimg/omc/10.jpg'></ion-img> -->
+    <!-- </ion-slide> -->
+    <!-- <ion-slide> -->
+      <!-- <ion-img src='https://omchyi.site/srcimg/omc/11.jpg'></ion-img> -->
+    <!-- </ion-slide> -->
+    <!-- <ion-slide> -->
+      <!-- <ion-img src='https://omchyi.site/srcimg/omc/12.jpg'></ion-img> -->
+    <!-- </ion-slide> -->
+    <!-- <ion-slide> -->
+      <!-- <ion-img src='https://omchyi.site/srcimg/omc/13.jpg'></ion-img> -->
+    <!-- </ion-slide> -->
+    <!-- <ion-slide> -->
+      <!-- <ion-img src='https://omchyi.site/srcimg/omc/14.jpg'></ion-img> -->
+    <!-- </ion-slide> -->
+    <!-- <ion-slide> -->
+      <!-- <ion-img src='https://omchyi.site/srcimg/omc/15.jpg'></ion-img> -->
+    <!-- </ion-slide> -->
+  <!-- </ion-slide> -->
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="lines"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+  <ion-card class='ion-padding' color='yellow' >
+    <!-- <img [src]="image"/> -->
+    <ion-card-header >
+      <ion-card-title > <ion-text color="grey">ยินดีต้อนรับ</ion-text></ion-card-title>
+      <ion-card-subtitle ><ion-text color="grey">ญลภก.3(หญ.) ส่วนระบบบำรุงรักษากลาง</ion-text></ion-card-subtitle> 
+    </ion-card-header>
+    <ion-card-content ><ion-text color="grey">
+      โทร.074251135,074251136</ion-text>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card class='ion-padding' color='yellow' >
+     <ion-card-header>
+        
+        <ion-card-title ><ion-text color="grey">Job</ion-text></ion-card-title>
+      </ion-card-header>
+  
+      <ion-card-content>
+        <ion-grid >
+          <ion-row>
+            <!-- <ion-col size-sm="4"> -->
+                        <!--  -->
+               <!-- <ion-button class="btn" expand='block'  (click)="openPri()" color='grey'> -->
+                <!-- <ion-icon slot="start"  name="call" ></ion-icon> -->
+                <!-- <p>Pri565k</p>  -->
+              <!-- </ion-button>  -->
+            <!-- </ion-col> -->
+            <!-- <ion-col size-sm="4"> -->
+              <!-- <ion-button expand='block' (click)=" openPriOther()" color='grey' > -->
+              <!-- <ion-icon slot="start" name="call" ></ion-icon> -->
+              <!-- <p > PRI</p>  -->
+              <!-- </ion-button> -->
+            <!-- </ion-col> -->
+            <!-- <ion-col size-sm="4"> -->
+              <!-- <ion-button expand='block' (click)=" openCot()"  color='grey'> -->
+                <!-- <ion-icon name="paper-plane" slot="start" ></ion-icon> -->
+              <!-- <p>Cot565k</p> -->
+                <!--  -->
+              <!-- </ion-button> -->
+            <!-- </ion-col> -->
+            <ion-col size-sm="4"><ion-button expand='block' color='grey' (click)=" openTT()" >
+              <ion-icon slot="start" name="trail-sign" ></ion-icon>
+             <p>สื่อสัญญาณ</p>
+            </ion-button>
+          </ion-col>
+          
+            <!-- <ion-col size-sm="4"> -->
+              <!-- <ion-button expand='block' color='grey' (click)=" openNsc()"> -->
+              <!-- <ion-icon slot="start" name="planet" ></ion-icon> -->
+             <!-- <p>NSC</p> -->
+            <!-- </ion-button></ion-col> -->
+            <!--  -->
+          <ion-col size-sm="4"><ion-button expand='block'  color='grey' (click)=" openElectSelect()">
+            <ion-icon slot="start" name="flash" ></ion-icon>
+           <p> ไฟฟ้า</p>
+          </ion-button>
+        </ion-col>
+          
+            <!-- <ion-col size-sm="4"> -->
+              <!-- <ion-button expand='block' color='grey' (click)=" openIdcSelect()"> -->
+              <!-- <ion-icon slot="start" name="cloud" ></ion-icon> -->
+             <!-- <p>IDC</p> -->
+            <!-- </ion-button></ion-col> -->
+            <ion-col size-sm="4">
+              <ion-button expand='block' color='grey' (click)=" openIpphone()">
+              <ion-icon slot="start" name="call" ></ion-icon>
+             <p>IP-Phone</p>
+            </ion-button></ion-col>
+
+            <ion-col size-sm="4">
+              <ion-button expand='block' color='grey' (click)=" openSip()">
+              <ion-icon slot="start" name="chatbox-ellipses" ></ion-icon>
+             <p>Sip Trunk</p>
+             
+            </ion-button></ion-col>
+ 
+            <!-- <ion-col size-sm="4"> -->
+              <!-- <ion-button expand='block' color='grey' (click)=" openSpc()"> -->
+              <!-- <ion-icon slot="start" name="podium" ></ion-icon> -->
+             <!-- <p>SPC</p> -->
+             <!--  -->
+            <!-- </ion-button></ion-col> -->
+
+         </ion-row>
+         
+        </ion-grid>
+      </ion-card-content>
+  </ion-card>
+
+  <!-- <ion-button (click)="openMenu()" class="ion-padding" expand="block" shape="round"> -->
+    <!-- Menu -->
+  <!-- </ion-button> -->
+<!-- <ion-card  color='bluesky' *ngIf="weather"> -->
+  <!-- <ion-grid fixed> -->
+  <!-- <ion-row> -->
+<!--  -->
+    <!-- <ion-col size-sm="5"> -->
+      <!-- <img  class='icon' src={{icon}}  alt=''/> -->
+      <!-- <h1 class='temp'>{{weather?.current.temp |number: '1.0-0'}}&deg;</h1> -->
+    <!-- </ion-col> -->
+<!--  -->
+    <!-- <ion-col size-sm="7"> -->
+      <!-- <p>{{weather?.current.dt*1000 | date :'EEEE HH:mm aaa'}} -->
+      <!-- <br>{{weather?.current.dt*1000 | date :'d MMM,yyyy '}}</p> -->
+      <!-- <h1 class="locate">{{weatherAdd?.name }},{{weatherAdd?.sys.country}}  -->
+      <!-- <br><ion-icon name="thermometer"></ion-icon>{{weather?.current.feels_like |number: '1.0-0' }}&deg;/{{weather?.current.temp |number: '1.0-0'}}&deg; -->
+      <!-- <br>  {{weather?.current.weather[0].description }}</h1> -->
+<!--  -->
+      <!-- <p><ion-icon slot="start" name="sunny"></ion-icon>Sunrise:{{weather?.current.sunrise*1000 | date:'h.mm a'}} -->
+      <!-- <br><ion-icon slot="start" name="partly-sunny"></ion-icon>Sunset:{{weather?.current.sunset*1000 | date:'h.mm a'}} -->
+      <!-- <br><ion-icon slot="start" name="sunny"></ion-icon>UV:{{weather?.current.uvi}}  -->
+      <!-- <br><ion-icon name="navigate"></ion-icon>wind: {{weather?.current.wind_speed}} m/s -->
+      <!-- <br><ion-icon name="thermometer"></ion-icon>Pressure:{{weather?.current.pressure}} hPa  -->
+      <!-- <br><ion-icon name="rainy"></ion-icon>Humidity:{{weather?.current.humidity}} % -->
+      <!-- <br><ion-icon name="cloudy"></ion-icon>Cloud:{{weather?.current.clouds}} % </p> -->
+    <!-- </ion-col> -->
+  <!-- </ion-row> -->
+<!--  -->
+  <!-- <ion-row> -->
+    <!-- <ion-col size-sm="2" *ngFor="let w of weather.hourly let i=index" > -->
+      <!-- <div *ngIf="i<18"> -->
+      <!-- <h1 class="dateh">{{w?.dt*1000 |date :'HH'}}</h1> -->
+      <!-- <p class='pop' >{{w?.pop*100 |number: '1.0-0'}} %</p> -->
+      <!-- <br><img class='iconh' src='https://openweathermap.org/img/wn/{{w?.weather[0].icon}}@2x.png'/> -->
+      <!-- <br><br><p class='temph'>{{w?.temp |number: '1.0-0'}}&deg;</p> -->
+    <!-- </div> -->
+    <!-- </ion-col> -->
+ <!-- </ion-row> -->
+<!--  -->
+ <!-- <ion-row *ngFor="let w of weather.daily ">  -->
+  <!-- <ion-col size-sm="5"  > -->
+    <!-- <p class="dated">{{w?.dt*1000 |date :'EEEE'}}</p> -->
+    <!--  -->
+   <!-- </ion-col> -->
+<!--  -->
+   <!-- <ion-col size-sm="3"> -->
+    <!-- <img class='icond' src='https://openweathermap.org/img/wn/{{w?.weather[0].icon}}@2x.png'/> -->
+  <!-- </ion-col> -->
+<!--  -->
+  <!-- <ion-col size-sm="2" > -->
+    <!-- <p class='tempdmax'>{{w?.temp.max |number: '1.0-0'}}&deg;</p> -->
+  <!-- </ion-col> -->
+<!--  -->
+<!-- <ion-col size-sm="2" > -->
+    <!-- <p class='tempdmin'>{{w?.temp.min |number: '1.0-0'}}&deg;</p> -->
+  <!-- </ion-col> -->
+<!-- </ion-row> -->
+<!--  -->
+ <!-- </ion-grid> -->
+<!--  -->
+ <!--  -->
+<!--  -->
+<!--  -->
+<!-- </ion-card> -->
+   
+
+
+  <div class="ion-text-center">
+      <ion-card color="yellow" *ngIf="crypto">
+        <ion-text color="grey" >
+            <h1  style='font: size 1.5em;'>Cryptocurrency</h1>
+          </ion-text>
+       </ion-card>
+   </div>
+
+<ion-card *ngFor="let c of crypto" color="yellow" >
+  <ion-grid fixed *ngIf='crypto'>
+    <ion-row>
+      <ion-col size-sm="3">
+        <ion-card-content>
+          <img *ngIf="c.icon" src='./assets/icon_crypto/{{c?.icon}}' >
+        </ion-card-content>
+      </ion-col>
+      <ion-col size-sm="4">
+        
+        <ion-text color="grey">
+          <p>{{c?.name}}</p>
+        </ion-text>
+      
+      </ion-col>
+
+     
+      <ion-col size-sm="5">
+       
+          <ion-text color="grey">
+            <p style='font: size 10%;'>{{c?.price |number}}</p>
+          </ion-text>
+
+          <!-- <div ng-if="c.change < 0"> -->
+            <!-- <ion-text color="red"> -->
+              <!-- <p style='font: size 10%;'>{{c?.change}} %</p> -->
+            <!-- </ion-text>   -->
+        <!-- </div> -->
+        <!-- <div ng-if="c.change > 0"> -->
+          <!-- <ion-text color="green"> -->
+            <!-- <p style='font: size 10%;'>{{c?.change}} %</p> -->
+          <!-- </ion-text>  -->
+        <!-- </div> -->
+
+         <ion-text color="danger">
+           <p style='font: size 10%;'>{{c?.change}} %</p>
+         </ion-text>  
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  </ion-card>
+
+
+
+</ion-content>

@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="grey">PRI CHART</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="grey" ></ion-back-button>
+  </ion-buttons>
+
+  <ion-buttons slot="end">
+    <ion-button (click)="home()">
+      <ion-icon slot="icon-only" name="home" color="grey"></ion-icon>
+    </ion-button>
+    </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="lines"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+<ion-card color='yellow' >
+  <canvas #barChart></canvas>
+</ion-card>
+
+<ion-card>
+    <ion-list-header color='yellow'>
+    <ion-label color="grey">ระบบชุมสาย</ion-label>
+    <ion-button color="grey">วงจร</ion-button>
+  </ion-list-header>
+  <ion-item *ngFor ='let R of Results' color='yellow'>
+    <ion-badge color="grey" slot="end">{{R?.total}}</ion-badge>
+    <ion-label color="grey">
+      <p>{{R?.system}} </p>
+      <!-- <p>จำนวนวงจร FTTX ที่ตัดถ่าย:  {{R?.total}} วงจร  </p> -->
+    </ion-label>
+  </ion-item>
+</ion-card>
+
+<ion-card color='yellow'>
+  <!-- <ion-list-header color='dark'> -->
+    <!-- <ion-label>จังหวัด</ion-label> -->
+    <!-- <ion-button>ระบบ</ion-button> -->
+  <!-- </ion-list-header> -->
+  <ion-item *ngFor ='let R of ResultsCase' color='yellow'>
+    
+    <ion-label color="grey">
+      <h1>{{R?.province}} </h1>
+      <p *ngIf="R.soft565k">Soft565k :
+        <ion-badge color='orange'slot="end">{{R?.soft565k}}</ion-badge></p>
+      <p *ngIf="R.EWSD">EWSD : 
+      <ion-badge color='orange' slot="end">{{R?.EWSD}}</ion-badge></p>
+      <p *ngIf="R.AXE10">AXE-10 : 
+        <ion-badge color="orange" slot="end">{{R?.AXE10}}</ion-badge></p>
+      <p *ngIf="R.Sigma">SIGMA : 
+        <ion-badge color="orange" slot="end">{{R?.Sigma}}</ion-badge></p>
+    </ion-label>
+  </ion-item>
+</ion-card>
+
+
+</ion-content>

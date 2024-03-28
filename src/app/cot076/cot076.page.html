@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="grey">{{totalItem}} รายการ</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button  text="Back" color="grey" ></ion-back-button>
+  </ion-buttons>
+  <ion-buttons slot="end">
+    <ion-button (click)="home()">
+      <ion-icon slot="icon-only" name="home" color="grey"></ion-icon>
+    </ion-button>
+    </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="lines"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card *ngFor ='let R of Results' color='yellow' expand="block" >
+     
+    <ion-card-content>
+      <ion-text color="grey">
+     <h2> {{R?.Note}}, จังหวัด:{{R?.Prov}}</h2>
+     <h1>{{R?.SNB}}</h1> 
+    </ion-text>
+     <ion-badge color="grey" slot="end" *ngIf="R.Total">
+       total {{R?.Total}}
+     </ion-badge>
+     <ion-badge class="active" color="orange" slot="end" *ngIf="R.active">
+      active {{R?.active}}
+    </ion-badge>
+    <ion-text color="grey">
+     <p>COT :{{R?.COT}}</p>
+     <p>V5ID: {{R?.V5ID}}</p>
+     <p>RT  : {{R?.RT}}</p>
+   </ion-text>
+    
+    </ion-card-content>
+  </ion-card>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="lines"
+      loadingText="กำลังโหลด เพิ่มเติม...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

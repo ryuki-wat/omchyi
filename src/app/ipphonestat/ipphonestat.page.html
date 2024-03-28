@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="grey" >ipphonestat</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button  text="Back" color="grey"></ion-back-button>
+  </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="lines"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card >
+    <ion-img src='https://omchyi.site/power/ipphone.jpg'></ion-img>
+    <!-- <ion-img  src='./assets/icon/ipphone.jpg'></ion-img> -->
+  </ion-card>
+  <ion-card>
+
+    <div id="highcharts"></div>
+  </ion-card>
+
+
+  <ion-card>
+  <ion-list-header color='yellow'>
+    
+    <ion-label color="grey">ภาค</ion-label>
+    <ion-button color="grey">จำนวนเลขหมาย</ion-button>
+  
+  </ion-list-header>
+  <ion-item *ngFor ='let I of IpphoneArea' color='yellow'>
+
+    <ion-badge color="grey" slot="end">{{I?.total}}</ion-badge>
+    <ion-label color="grey">
+      <p>{{I?.area}} </p>
+      <!-- <p>จำนวนวงจร FTTX ที่ตัดถ่าย:  {{R?.total}} วงจร  </p> -->
+      
+    </ion-label>
+  </ion-item>
+</ion-card>
+
+<ion-card>
+  <div id="highCharts"></div>
+</ion-card>
+
+
+<ion-card>
+  <ion-list-header color='yellow'>
+    <ion-label color="grey">จังหวัด</ion-label>
+    <ion-button color="grey">เปิดใช้งาน</ion-button>
+    <ion-button color="grey">ว่าง</ion-button>
+  </ion-list-header>
+  <ion-item *ngFor ='let s of IpphoneSouth' color='yellow'>
+    <ion-badge color="grey" slot="end">{{s?.total}}</ion-badge>
+    <ion-badge color="warning" slot="end">{{s?.freenum}}</ion-badge>
+    <ion-label color="grey">
+      <p >{{s?.province}} </p>
+     
+      
+    </ion-label>
+  </ion-item>
+</ion-card>
+
+</ion-content>

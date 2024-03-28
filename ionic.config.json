@@ -1,0 +1,7 @@
+{
+  "name": "omchyi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

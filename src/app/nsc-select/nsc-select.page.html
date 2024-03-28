@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="grey">กรุณาเลือกรายการ</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button  text="Back" color="grey"></ion-back-button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+ 
+  
+    
+  <div class="ion-text-center">
+    
+    <ion-card (click)='routeNsc()'color='yellow'  >
+      <ion-text color="grey"><h1>Routing NSC</h1></ion-text>
+     </ion-card>
+    <ion-card (click)='ltgNsc1()'color='yellow'  >
+      <ion-text color="grey"><h1>LTG-E1-NSC1</h1></ion-text>
+     </ion-card>
+     <ion-card (click)='ltgNsc2()'color='yellow'  >
+      <ion-text color="grey"><h1>LTG-E1-NSC2</h1></ion-text>
+     </ion-card>
+    </div>
+</ion-content>

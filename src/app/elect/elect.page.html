@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="grey">Total : {{totalItem}} Rooms</ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button  text="Back" color="grey" ></ion-back-button>
+  </ion-buttons>
+  <ion-buttons slot="end">
+    <ion-button (click)="home()">
+      <ion-icon slot="icon-only" name="home" color="grey"></ion-icon>
+    </ion-button>
+    </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="lines"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+<ion-card>
+  <ion-img src='https://omchyi.site/power/UPSIsp.jpg'></ion-img>  
+</ion-card>
+<ion-card>
+  <ion-img  src='https://omchyi.site/power/UPSIdc.jpg'></ion-img>  
+</ion-card>
+<ion-card>
+  <ion-img  src='https://omchyi.site/power/RecNec.jpg'></ion-img>  
+</ion-card>
+<ion-card>
+  <ion-img  src='https://omchyi.site/power/RecEmer.jpg'></ion-img>  
+</ion-card>
+<ion-card>
+  <ion-img  src='https://omchyi.site/power/RecEaton.jpg'></ion-img>  
+</ion-card>
+
+<ion-card *ngFor ='let R of Results' color='secondary' color='yellow' >
+<ion-card-content ><ion-text color="grey">
+        <h1>{{R?.name}}</h1>
+      <p *ngIf="R.air1">Air:{{R?.air1}}</p>
+       <p *ngIf="R.air2">Air:{{R?.air2}}</p>
+       <p *ngIf="R.air3">Air:{{R?.air3}}  </p>
+       <p *ngIf="R.air4">Air:{{R?.air4}}  </p>
+       <p *ngIf="R.rectifier1">Rectifier:{{R?.rectifier1}}  </p> 
+       <p *ngIf="R.rectifier2">Rectifier:{{R?.rectifier2}}  </p> 
+       <p *ngIf="R.UPS">UPS:{{R?.UPS}}  </p> 
+      </ion-text>
+      </ion-card-content>
+  </ion-card>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="lines"
+      loadingText="กำลังโหลด เพิ่มเติม...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

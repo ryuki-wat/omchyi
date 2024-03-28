@@ -1,0 +1,78 @@
+
+   
+   .icon{
+   
+       width: 200px;
+       
+       position: absolute;
+       margin: auto;
+        top: 0;
+        left: 0;
+     right: 0;
+    bottom: 120px;
+   }
+.temp{
+  text-align: center;
+  font-size: 50px;
+  color: blue;
+  position: absolute;
+  margin: auto;
+   top: 200px;
+   left: 0;
+right: 0;
+bottom: 0;   
+     
+
+} 
+.locate{
+    color: blue; 
+}
+
+.iconh{
+    position: absolute;
+    margin: auto;
+     top: 60px;
+     left: 0;
+  right: 0;
+ bottom: 0;
+}
+.temph{
+    /* font-size:small; */
+    color: blue;
+    text-align: center;
+    
+     top: 0;
+     left: 0;
+  right: 0;
+ bottom: 200px;
+}
+.dateh{
+    font-size: medium;
+    text-align:  center;
+}
+.dated{
+    font-size:small;
+    text-align: left;
+}
+.tempdmax{
+    color: red;
+}
+.tempdmin{
+    color: blue;
+}
+.icond{
+    position: absolute;
+    //margin: auto;
+   
+}
+.pop{
+    color: cornflowerblue;
+font-size:small;
+  font-weight: lighter; 
+     text-align: center; 
+}
+.btn {
+    text-transform: none;
+   border: 100em;
+}
+

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+   <ion-buttons slot="start" >
+      <ion-back-button  text="Back" color="grey" ></ion-back-button>
+  </ion-buttons>
+  <!-- <ion-img slot='end' src='./assets/icon/tot.png'></ion-img> -->
+    <ion-title color="grey" >pri565k {{totalItem}} วงจร</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="lines"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card *ngFor ='let R of Results' color='yellow' expand="block" shape="round">
+     
+    <ion-card-content ><ion-text color="grey">
+     <h2> {{R?.name}} จังหวัด:{{R?.province}}</h2>
+     <h1>{{R?.number}}</h1> 
+     <ion-badge color="grey" slot="end">
+       {{R?.totalnumber}}
+     </ion-badge>
+    <p>จำนวน pri :{{R?.member_pri}}</p>
+  </ion-text>
+      
+    </ion-card-content>
+  </ion-card>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="lines"
+      loadingText="กำลังโหลด เพิ่มเติม...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

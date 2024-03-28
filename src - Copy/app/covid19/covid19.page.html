@@ -1,0 +1,143 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+     </ion-buttons>
+    <ion-title >covid19</ion-title>
+    <ion-img slot='end' src='./assets/icon/tot.png'></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="lines"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div class="ion-text-center">
+    <ion-icon name="medkit"></ion-icon>
+    <h3 style='font-size:1.2em'  >
+     ยินดีต้อนรับ, <br> อัพเดทผู้ติดเชื้อไวรัสโคโรนา 2019 
+    </h3>
+  
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card color="medium">
+          <ion-text  >
+            <p>วันที่ {{covidToday?.UpdateDate }}</p>
+          </ion-text>
+        </ion-card>
+      </ion-col>
+      
+      <ion-col size="6">
+        <ion-card color="danger" >
+          <ion-icon  name="earth"></ion-icon>
+          <h6>ทั่วโลก :</h6>
+          <ion-text color="warning">
+          <h1 style='font-size:1.5em'>{{covidWorld?.cases |number}}</h1>
+          <p>(+{{covidWorld?.todayCases |number}})</p>
+          </ion-text>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card color="warning" >
+          <ion-icon  name="skull"></ion-icon>
+          <h6>ทั่วโลกเสียชีวิต :</h6>
+          <ion-text color="danger">
+          <h1 style='font-size:1.5em'>{{covidWorld?.deaths |number}}</h1>
+          <p>(+{{covidWorld?.todayDeaths |number}})</p>
+          </ion-text>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  
+    <ion-row>
+      
+      <ion-col size="6">
+        <ion-card color="danger" >
+          <ion-icon  name="person-add"></ion-icon>
+          <h6>ไทย :</h6>
+          <ion-text color="warning">
+          <h1 style='font-size:1.5em'>{{covidToday?.Confirmed |number}}</h1>
+          <p>(+{{covidToday?.NewConfirmed |number}})</p>
+          
+        </ion-text>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card color="warning" >
+          <ion-icon  name="skull"></ion-icon>
+          <h6>เสียชีวิต :</h6>
+          <ion-text color="danger">
+          <h1 style='font-size:1.5em'>{{covidToday?.Deaths |number}}</h1>
+          <p>(+{{covidToday?.NewDeaths |number}})</p>
+          
+        </ion-text>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="6">
+        <ion-card color="success" >
+          <ion-icon  name="fitness"></ion-icon>
+          <h6>รักษาอยู่ใน รพ. :</h6>
+          <ion-text color="warning">
+          <h1 style='font-size:1.5em'>{{covidToday?.Hospitalized |number}}</h1>
+          <p>(+{{covidToday?.NewHospitalized |number}})</p>
+          
+        </ion-text>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card color="success" >
+          <ion-icon  name="body"></ion-icon>
+          <h6>หายแล้ว:</h6>
+          <ion-text color="warning">
+          <h1 style='font-size:1.5em'>{{covidToday?.Recovered |number}}</h1>
+          <p>(+{{covidToday?.NewRecovered |number}})</p>
+        </ion-text>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</div>
+<!-- <ion-card > -->
+  <!-- <ion-card-content> -->
+   <!-- <div id="highcharts" style="width:100%; height:400px;"></div> -->
+  <!-- </ion-card-content> -->
+<!-- </ion-card> -->
+
+<!-- <ion-grid fixed> -->
+  <!-- <ion-row> -->
+    <!-- <ion-col size="12"> -->
+      <!-- <ion-card color="warning"> -->
+        <!-- <ion-text class="ion-text-center"> -->
+          <!-- <h1>ประวัดิผู้ติดเชื้อล่าสุด</h1> -->
+        <!-- </ion-text> -->
+      <!-- </ion-card> -->
+    <!-- </ion-col> -->
+    <!-- </ion-row> -->
+  <!-- </ion-grid > -->
+<!-- <ion-card *ngFor="let c of covidByCase; let i =index" color="warning"> -->
+ <!-- <ion-card-content *ngIf="i<5"> -->
+   <!--  -->
+    <!-- <p>เพศ: {{c?.Gender}} อายุ: {{c?.Age}} สัญชาติ: {{c?.Nation}} </p> -->
+    <!-- <p> เขต: {{c?.District}} จังหวัด: {{c?.Province}}</p> -->
+    <!-- <ion-text color="tertiary" class ='ion-text-end'> -->
+    <!-- <p>{{c?.ConfirmDate | date : 'dd/MM/yyyy '}}</p></ion-text> -->
+       <!--  -->
+       <!-- |number คอมมาคั่นหลักพัน -->
+       <!-- <ion-badge color="danger" slot="end">{{p.view |number}}</ion-badge> -->
+    <!-- </ion-card-content> -->
+  <!-- </ion-card> -->
+</ion-content>

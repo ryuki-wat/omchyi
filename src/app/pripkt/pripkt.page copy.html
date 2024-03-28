@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button  text="Back" ></ion-back-button>
+  </ion-buttons>
+    <ion-title>pri ภูเก็ต : {{totalItem}} รายการ</ion-title>
+    
+<ion-buttons slot="end">
+  <ion-button (click)="home()">
+    <ion-icon slot="icon-only" name="home"></ion-icon>
+</ion-button>
+</ion-buttons>   
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="lines"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+<ion-list>
+  <ion-item *ngFor ='let R of Results' color='lightgreen'>
+    <ion-badge color="primary" slot="end">{{R?.totalnumber}}</ion-badge>
+    <ion-label>
+      <h5>{{R?.name}} จังหวัด:{{R?.province}}</h5>
+      <h2>{{R?.number}}</h2>
+      <p>ชุมสาย:{{R?.type}},จำนวน pri :{{R?.member_pri}} </p>
+      
+    </ion-label>
+  </ion-item>
+</ion-list>
+
+<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll-content
+    loadingSpinner="lines"
+    loadingText="กำลังโหลด เพิ่มเติม...">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>
+</ion-content>

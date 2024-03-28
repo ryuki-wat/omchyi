@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="grey" >แผนที่</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button color="grey"></ion-menu-button>
+     </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="lines"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+ 
+   
+
+  <google-map 
+      height="80%"
+      width="100%"
+      [center]="center"
+      [zoom]="zoom"
+      (mapClick)="addMarker($event)"
+      
+  >
+
+  <map-marker 
+      #marker="mapMarker"
+      *ngFor="let markerPosition of markerPositions let i = index"
+      [position]="markerPosition"
+      [options]="markerOptions"
+      (mapClick)="openInfoWindow(marker)">
+  </map-marker>
+  <map-info-window>
+    lat: {{lati |number: '1.0-4'}} lng: {{lngi |number: '1.0-4'}}
+    
+  </map-info-window>
+</google-map>
+
+</ion-content>

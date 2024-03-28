@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>TT&T{{item?.province}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button  text="Back" ></ion-back-button>
+  </ion-buttons>
+
+  <ion-buttons slot="end">
+    <ion-button (click)="home()">
+      <ion-icon slot="icon-only" name="home"></ion-icon>
+  </ion-button>
+  </ion-buttons>  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="lines"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card>
+    <div id="highcharts"></div>
+  </ion-card>
+  
+
+  <ion-card>
+    <ion-list-header color='dark'>
+      <ion-label>ชุมสาย</ion-label>
+      <ion-button color="yellow">เลขหมายเปิด</ion-button>
+      
+    </ion-list-header>
+    <ion-item *ngFor ='let R of Result' color='dark' >
+      <ion-badge color="red" slot="end">{{R?.totalnum}}</ion-badge>
+      
+     
+      
+      <ion-label>
+        <p>{{R?.chum}} </p>
+              
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+  
+</ion-content>

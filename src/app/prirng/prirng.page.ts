@@ -1,0 +1,95 @@
+import { Component, OnInit } from '@angular/core';
+import { LoadingController, NavController } from '@ionic/angular';
+import { Subscription } from 'rxjs';
+import { DataService } from '../shared/data.service';
+
+@Component({
+  selector: 'app-prirng',
+  templateUrl: './prirng.page.html',
+  styleUrls: ['./prirng.page.scss'],
+})
+export class PrirngPage implements OnInit {
+
+  loading:any
+  sub:Subscription
+  page=1;
+  limit=5
+  event:any
+  Results:any[]=[]
+  pageTotal:number
+  totalItem:number
+  constructor(
+    private navCtrl:NavController,
+    private ds:DataService,
+    public loadingController:LoadingController
+
+  ) { }
+
+  async ngOnInit() {
+    //หมุนก่อน subscribe
+    this.loading=await this.loadingController.create
+    ({
+      message:'กำลังโหลด...'
+    });
+    await this.loading.present();
+    this.getPriRng();
+   
+  }
+  getPriRng(event?:any){
+    //get news again
+  this.sub = this.ds.getPriRng(this.page,this.limit).subscribe((res:any)=>{
+     
+     this.pageTotal=res.data.totalPages
+     this.totalItem=res.data.totalItems
+    
+
+    this.Results=this.Results.concat(res.data.prirng);
+    
+  },async (error:any)=>{
+    //หายไปตอนerror
+    await this.loading.dismiss(); //loading
+    //infinite scroll
+    if(event){event.target.complete();}
+  },
+  async ()=>{
+    //หายไปตอนสมบูรณ์
+    await this.loading.dismiss();
+    if(event){event.target.complete();}
+  });
+}
+
+doRefresh(event:any){
+   
+  //refresh ต้องมาหน้าแรก
+  this.page=1;
+  this.Results=[];
+  //enable infinite scroll
+  if(this.event){this.event.target.disabled = false};
+   //event.target.complete();
+  //refresh ให้ไปget news มาใหม่ ใส่ event หายโหลด
+  this.getPriRng(event);
+ }
+
+ loadData(event:any){
+  this.event=event;
+  this.page++;
+ //console.log(this.page)
+  //send event
+  this.getPriRng(event)
+   //คำนวณหน้า ปัดเป็นจำนวนเต็ม
+    if(this.page== this.pageTotal){
+      this.event.target.disabled = true;
+  } }
+
+ngOnDestroy(){
+  //clear memory
+   this.sub.unsubscribe();
+ }
+
+  home(){
+    this.navCtrl.navigateRoot([''])
+    }
+    
+}
+
+

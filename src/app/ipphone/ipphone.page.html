@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ipphone pppoe chart</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+  </ion-buttons>
+
+  <ion-buttons slot="end">
+    <ion-button (click)="home()">
+      <ion-icon slot="icon-only" name="home"></ion-icon>
+    </ion-button>
+    </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="lines"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <!-- <ion-list-header color="light">Vertical Bar Chart</ion-list-header> -->
+  <ion-card color="dark">
+    <!-- <ion-card-header> -->
+      <!-- <ion-card-subtitle>chart ตัดถ่าย ipphone dhcp เป็น pppoe รายวงจร แต่ละจังหวัด</ion-card-subtitle> -->
+      <!--  -->
+    <!-- </ion-card-header> -->
+    
+      <canvas class='chart' #barChart></canvas>
+    
+  </ion-card>
+
+  <ion-card>
+    
+  
+    <ion-list-header color='dark'>
+      <ion-label>จังหวัด</ion-label>
+      <ion-button>วงจรFTTX</ion-button>
+    </ion-list-header>
+    <ion-item *ngFor ='let R of Results' color='dark'>
+      <ion-badge color="red" slot="end">{{R?.total}}</ion-badge>
+      <ion-label>
+        <p>{{R?.province}} </p>
+        <!-- <p>จำนวนวงจร FTTX ที่ตัดถ่าย:  {{R?.total}} วงจร  </p> -->
+        
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+</ion-content>

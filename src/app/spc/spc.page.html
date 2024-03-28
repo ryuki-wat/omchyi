@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="grey">SPC</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button  text="Back" color="grey" ></ion-back-button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="lines"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-card>
+    <div id="highcharts"></div>
+  </ion-card>
+
+  <ion-card>
+    <div id="highCharts"></div>
+  </ion-card>
+  
+  <ion-card>
+    <ion-list-header color='yellow'>
+      <ion-label color="grey">เขต</ion-label>
+      <ion-button color="grey">จำนวนเลขหมาย</ion-button>
+    </ion-list-header>
+        
+    <ion-item *ngFor ='let r of resultNorm' color='yellow' >
+      <ion-label color="grey">
+        <p>{{r?.province}} </p>
+      </ion-label>
+    <ion-badge color="grey" class='chum'>{{r?.portcrm}}</ion-badge>
+    </ion-item>
+  </ion-card>
+<!--  -->
+  <ion-card>
+    <ion-list-header color='yellow'>
+      <ion-label color="grey">เขต</ion-label>
+      <ion-button color="grey">จำนวนชุมสาย</ion-button>
+    </ion-list-header>
+        
+    <ion-item *ngFor ='let r of resultpub' color='yellow' >
+      <ion-label color="grey">
+        <p>{{r?.province}} </p>
+      </ion-label>
+    <ion-badge color="grey" class='chum'>{{r?.portcrm}}</ion-badge>
+    </ion-item>
+  </ion-card>
+
+
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button  text="Back" color="grey"></ion-back-button>
+  </ion-buttons>
+    <ion-title color="grey">กรุณาเลือกรายการ</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-text-center">
+    <ion-card color='yellow' (click)="openElect()" >
+      <ion-text color="grey">
+      <h1>Air and Rectifier</h1>
+    </ion-text>
+    </ion-card>
+    <ion-card color='yellow' (click)="openDgknl()" >
+      <ion-text color="grey">
+      <h1>Diagram KNL</h1>
+    </ion-text>
+    </ion-card>
+    <ion-card color='yellow' (click)="openDgppn()" >
+      <ion-text color="grey">
+      <h1>Diagram PPN</h1>
+    </ion-text>
+    </ion-card>
+  </div>
+</ion-content>
