@@ -26,6 +26,7 @@ export class PriylaPage implements OnInit {
             "https://omchyi.site/mcsouth/wp-content/uploads/omchyi/LoadISPfloor3.pdf",
             "https://omchyi.site/mcsouth/wp-content/uploads/omchyi/LoadISPfloor2.pdf",
             "https://omchyi.site/mcsouth/wp-content/uploads/omchyi/LoadIDCfloor2.pdf",
+            "https://omchyi.site/mcsouth/wp-content/uploads/omchyi/power1.pdf",
             ]
   constructor(private modalCtrl:ModalController,
     private navCtrl:NavController) { }
